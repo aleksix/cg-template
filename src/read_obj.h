@@ -20,7 +20,7 @@ protected:
 	std::vector<float4> vertexes;
 	std::vector<face> faces;
 
-	std::vector<std::string> Split(const std::string& s, char delimiter);
+	std::vector<std::string> Split(const std::string& s, char delimiter = ' ');
 };
 
 

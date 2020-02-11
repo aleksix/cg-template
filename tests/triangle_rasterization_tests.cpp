@@ -16,5 +16,6 @@ TEST_CASE("Triangle rasterization test") {
         image->DrawScene();
     };
 
+    // Same size problems as with rasterization. Not sure what's the problem there, pretty sure the camera settings are off
     REQUIRE(validate_framebuffer("references/triangle_rasterization.png", image->GetFrameBuffer()));
 }

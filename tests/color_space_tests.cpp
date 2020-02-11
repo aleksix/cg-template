@@ -16,5 +16,6 @@ TEST_CASE("Color space test") {
         render->DrawScene();
     };
     
+    // Color_space.png is a bit too precise? Starting from x=143, y=0, every 15 pixels the G element of the image is off by 1 on the result
     REQUIRE(validate_framebuffer("references/color_space.png", render->GetFrameBuffer()));
 }

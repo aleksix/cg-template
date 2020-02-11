@@ -12,4 +12,9 @@ public:
 
 	void DrawScene();
 
+protected:
+	virtual void DrawTriangle(float4 triangle[3], color color);
+
+	float x_center = width / 2.0;
+	float y_center = height / 2.0;
 };

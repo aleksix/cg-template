@@ -19,7 +19,8 @@ BlackImage::~BlackImage()
 
 void BlackImage::Clear()
 {
-    frame_buffer.resize(width * height);
+    // Explicit color, just in case
+    frame_buffer.resize(width * height, color(0, 0, 0));
 }
 
 int BlackImage::Save(std::string filename) const

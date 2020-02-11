@@ -35,5 +35,7 @@ TEST_CASE("Projection test") {
         image->DrawScene();
     };
 
+    // Couldn't figure out 2 things - the correct parameters for the camera and the algorithm for coloring the resulting cube
+    // Also, pretty sure I need camera parameters. 90 FOV and some other tweaks brought me close to the needed size, but not exactly.
     REQUIRE(validate_framebuffer("references/projection.png", image->GetFrameBuffer()));
 }
