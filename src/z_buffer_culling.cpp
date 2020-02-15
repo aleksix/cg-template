@@ -18,7 +18,7 @@ ZCulling::~ZCulling()
 void ZCulling::Clear()
 {
 	TriangleRasterization::Clear();
-	depth_buffer.resize(width * height, -1000);
+	depth_buffer.resize(width * height, std::numeric_limits<float>::lowest());
 }
 
 
@@ -34,9 +34,9 @@ void ZCulling::DrawTriangle(float4 triangle[3], color col)
 	{
 		for (float y = bb_begin.y; y <= bb_end.y; y++) 
 		{
-			float area0 = EdgeFunction(triangle[0].xy(), triangle[1].xy(), float2{ x, y });
+			float area0 = EdgeFunction(triangle[2].xy(), triangle[0].xy(), float2{ x, y });
 			float area1 = EdgeFunction(triangle[1].xy(), triangle[2].xy(), float2{ x, y });
-			float area2 = EdgeFunction(triangle[2].xy(), triangle[0].xy(), float2{ x, y });
+			float area2 = EdgeFunction(triangle[0].xy(), triangle[1].xy(), float2{ x, y });
 			if (area0 >= 0 && area1 >= 0 && area2 >= 0)
 			{
 				drawn = true;
