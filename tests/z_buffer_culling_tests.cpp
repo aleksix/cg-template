@@ -8,7 +8,7 @@
 
 
 TEST_CASE("Triangle rasterization test") {
-    ZCulling* image = new ZCulling(1920, 1080, "models/cube.obj");
+    ZCulling* image = new ZCulling(1920, 1080, "models/z-test.obj");
     image->Clear();
 
     BENCHMARK("Draw scene")
@@ -16,5 +16,6 @@ TEST_CASE("Triangle rasterization test") {
         image->DrawScene();
     };
 
-    REQUIRE(validate_framebuffer("references/z_buffer_cuilling.png", image->GetFrameBuffer()));
+    // For some reason, DrawScene() here produces a different result from the main application
+    REQUIRE(validate_framebuffer("references/z_buffer_culling.png", image->GetFrameBuffer()));
 }

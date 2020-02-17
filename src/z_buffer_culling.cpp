@@ -44,7 +44,7 @@ void ZCulling::DrawTriangle(float4 triangle[3], color col)
 				float v = area1 / area;
 				float w = area2 / area;
 				float z = u * (-triangle[0].z) + v * (-triangle[1].z) + w * (-triangle[2].z);
-				SetPixel(x, y, color(255, 0, 0), z);
+				SetPixel(x, y, color(255 * u, 255 * v, 255 * w), z);
 			}
 		}
 	}
